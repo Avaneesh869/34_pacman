@@ -43,10 +43,12 @@ def ghost_color(name, mode):
 
     return tints.get(name)
 
-
 def on_pellet_eaten(score, pellets_left):
     """Called after every pellet is eaten; add sound, flashes, or bonus fruit here."""
-    pass
+    if pellets_left == 0:
+        pygame.display.set_caption("Pac-Man - FINAL PELLET!")
+    elif pellets_left <= 10:
+        pygame.display.set_caption(f"Pac-Man - {pellets_left} pellets left!")
 
 
 def bonus_life_threshold():
